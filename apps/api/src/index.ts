@@ -2,6 +2,8 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { logger } from 'hono/logger';
 import adminRouter from './routes/admin';
+import contentRouter from './routes/content';
+import uploadRouter from './routes/upload';
 import publicRouter from './routes/public';
 import { initializeDatabase, seedDefaultSettings } from './db';
 import { DatabaseService } from './database';
@@ -69,6 +71,12 @@ app.get('/init-db', async (c) => {
 
 // Admin API routes
 app.route('/api/admin', adminRouter);
+
+// Content management routes (protected by JWT)
+app.route('/api/admin/content', contentRouter);
+
+// File upload routes (protected by JWT)
+app.route('/api/admin/upload', uploadRouter);
 
 // Public API routes
 app.route('/api', publicRouter);
