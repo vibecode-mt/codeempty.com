@@ -1,0 +1,27 @@
+{
+  "name": "codeempty.com-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CodeEmpty.com - Personal CMS Platform on Cloudflare",
+  "author": "CodeEmpty",
+  "license": "ISC",
+  "workspaces": [
+    "apps/web",
+    "apps/api"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/web & npm run dev --workspace=apps/api",
+    "build": "npm run build --workspace=apps/web && npm run build --workspace=apps/api",
+    "start": "npm start --workspace=apps/web",
+    "type-check": "npm run type-check --workspace=apps/api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vibecode-mt/codeempty.com.git"
+  },
+  "keywords": ["cms", "cloudflare", "nextjs", "workers", "portfolio"],
+  "bugs": {
+    "url": "https://github.com/vibecode-mt/codeempty.com/issues"
+  },
+  "homepage": "https://github.com/vibecode-mt/codeempty.com#readme"
+}

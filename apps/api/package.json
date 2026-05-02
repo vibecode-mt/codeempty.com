@@ -1,0 +1,25 @@
+{
+  "name": "codeempty-api",
+  "version": "1.0.0",
+  "description": "CodeEmpty.com - Backend API (Cloudflare Workers + Hono)",
+  "private": true,
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "esbuild src/index.ts --bundle --format=esm --outfile=dist/index.js --external:cloudflare",
+    "deploy": "wrangler publish",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.0.0",
+    "nanoid": "^5.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.0.0",
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.19.0",
+    "typescript": "^5.0.0",
+    "wrangler": "^3.0.0"
+  }
+}
